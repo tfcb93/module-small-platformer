@@ -1,0 +1,75 @@
+[gd_scene load_steps=12 format=3 uid="uid://dmov8fsnatmi7"]
+
+[ext_resource type="Script" path="res://scripts/coin.gd" id="1_34cd4"]
+[ext_resource type="Texture2D" uid="uid://cburjmqoxb8qt" path="res://assets/images/coin.png" id="2_ntbsh"]
+[ext_resource type="AudioStream" uid="uid://wrhx57gfhdl3" path="res://assets/sounds/pickupCoin.wav" id="3_60nun"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_p570h"]
+radius = 5.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_610b6"]
+atlas = ExtResource("2_ntbsh")
+region = Rect2(0, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jikok"]
+atlas = ExtResource("2_ntbsh")
+region = Rect2(9, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lvhnm"]
+atlas = ExtResource("2_ntbsh")
+region = Rect2(18, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d8v2x"]
+atlas = ExtResource("2_ntbsh")
+region = Rect2(27, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fb56m"]
+atlas = ExtResource("2_ntbsh")
+region = Rect2(36, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_70u3m"]
+atlas = ExtResource("2_ntbsh")
+region = Rect2(45, 0, 8, 8)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ny084"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_610b6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jikok")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lvhnm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d8v2x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fb56m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_70u3m")
+}],
+"loop": true,
+"name": &"default",
+"speed": 15.0
+}]
+
+[node name="Coin" type="Area2D"]
+script = ExtResource("1_34cd4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_p570h")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_ny084")
+autoplay = "default"
+
+[node name="sound" type="AudioStreamPlayer2D" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("3_60nun")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="finished" from="sound" to="." method="_on_sound_finished"]
