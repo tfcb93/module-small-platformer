@@ -25,8 +25,8 @@ func _on_win() -> void:
 	Events.show_message.emit("You Win!");
 	Events.show_menu.emit();
 
-func _on_add_point() -> void:
-	Globals.player_score += 1;
+func _on_add_point(value: int = 1) -> void:
+	Globals.player_score += value;
 
 func _on_kill_player() -> void:
 	Events.show_message.emit("Game Over");

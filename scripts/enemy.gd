@@ -49,6 +49,8 @@ func hit_another_enemy() -> void:
 	change_direction();
 
 func kill_enemy() -> void:
+		Events.add_point.emit(5); # I think this should be in the game scene, since it is responsible for more global events.
+		# It's like, the enemy shouldn't know that when it dies it gives points to some entity.
 		get_parent().call_deferred("remove_child", self);
 		queue_free();
 

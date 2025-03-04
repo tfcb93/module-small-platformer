@@ -14,7 +14,7 @@ signal player_fell();
 signal player_died();
 signal stop_enemies();
 
-signal add_point();
+signal add_point(value: int);
 signal update_score();
 
 signal win();
