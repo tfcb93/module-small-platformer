@@ -18,7 +18,7 @@ func create_level() -> void:
 	actual_level = level_instance.instantiate();
 	Globals.actual_level_tilemap = actual_level;
 	add_child(actual_level);
-	move_child(actual_level, 0);
+	move_child(actual_level, 1);
 
 func _on_win() -> void:
 	Globals.is_game_finished = true;
