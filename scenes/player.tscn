@@ -5,7 +5,7 @@
 [ext_resource type="Script" uid="uid://dhnvd2dcbrtbx" path="res://scripts/camera.gd" id="3_uxvar"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_v62bb"]
-radius = 9.0
+radius = 7.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_n8fv6"]
 atlas = ExtResource("1_ft07a")

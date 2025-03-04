@@ -36,10 +36,10 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_uv7os"]
-size = Vector2(18, 8)
+size = Vector2(16, 8)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0topi"]
-size = Vector2(18, 24)
+size = Vector2(16, 24)
 
 [node name="Enemy" type="CharacterBody2D"]
 script = ExtResource("1_kuujd")

@@ -1,10 +1,11 @@
 extends CharacterBody2D;
 
-const SPEED: float = 300.0;
-const JUMP_VELOCITY: float = -400.0;
+const SPEED: float = 200.0;
+const JUMP_VELOCITY: float = -350.0;
 
 func _ready() -> void:
 	Events.player_died.connect(_on_player_died);
+	Events.win.connect(_on_player_win);
 
 func _physics_process(delta: float) -> void:
 
@@ -41,3 +42,7 @@ func _on_player_died() -> void:
 	parent.add_child(camera);
 	parent.call_deferred("remove_child",self);
 	queue_free();
+
+func _on_player_win() -> void:
+	%animations.frame = 0;
+	%animations.stop();
