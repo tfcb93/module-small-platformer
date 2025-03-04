@@ -12,6 +12,7 @@ signal hide_menu();
 signal kill_player();
 signal player_fell();
 signal player_died();
+signal stop_enemies();
 
 signal add_point();
 signal update_score();

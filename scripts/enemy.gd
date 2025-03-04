@@ -10,6 +10,8 @@ func _ready() -> void:
 	direction = choose_direction();
 	change_direction();
 
+	Events.stop_enemies.connect(_on_stop_enemies);
+
 
 func _physics_process(delta: float) -> void:
 	if (not Globals.is_game_finished and not Globals.is_game_over):
@@ -61,8 +63,10 @@ func _on_head_area_body_entered(body: Node2D) -> void:
 func _on_bottom_area_body_entered(body: Node2D) -> void:
 	if (body.name == "Player"):
 		Events.kill_player.emit();
-		%animation.frame = 0;
-		%animation.stop();
 	if (body.name == "Enemy"):
 		body.hit_another_enemy();
 		hit_another_enemy();
+
+func _on_stop_enemies() -> void:
+	%animation.frame = 0;
+	%animation.stop();

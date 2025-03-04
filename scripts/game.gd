@@ -33,12 +33,14 @@ func _on_kill_player() -> void:
 	Events.show_menu.emit();
 	Globals.is_game_over = true;
 	Events.player_died.emit();
+	Events.stop_enemies.emit();
 
 func _on_player_fell() -> void:
 	Events.show_message.emit("Game Over");
 	Events.show_menu.emit();
 	Globals.is_game_over = true;
 	Events.player_died.emit();
+	Events.stop_enemies.emit();
 
 func _on_restart_game() -> void:
 	Events.hide_message.emit();
