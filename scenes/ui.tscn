@@ -1,0 +1,74 @@
+[gd_scene load_steps=4 format=3 uid="uid://c07ubfg6oras7"]
+
+[ext_resource type="Script" uid="uid://cif2a4uc3m7fo" path="res://scripts/ui.gd" id="1_nt7q6"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_nt7q6"]
+font_size = 14
+
+[sub_resource type="LabelSettings" id="LabelSettings_xlq6p"]
+font_size = 36
+
+[node name="UI" type="CanvasLayer"]
+script = ExtResource("1_nt7q6")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="player_score" type="Label" parent="Control"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 5.0
+offset_top = 5.0
+offset_right = 98.0
+offset_bottom = 28.0
+text = "Score: 0"
+label_settings = SubResource("LabelSettings_nt7q6")
+
+[node name="big_message" type="Label" parent="Control"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -101.5
+offset_top = 89.0
+offset_right = 101.5
+offset_bottom = 112.0
+grow_horizontal = 2
+text = "YOU WIN OR LOSE"
+label_settings = SubResource("LabelSettings_xlq6p")
+horizontal_alignment = 1
+
+[node name="simple_menu" type="VBoxContainer" parent="Control"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -20.0
+offset_top = -50.0
+offset_right = 20.0
+offset_bottom = -10.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="restart" type="Button" parent="Control/simple_menu"]
+layout_mode = 2
+text = "Restart"
+
+[node name="quit" type="Button" parent="Control/simple_menu"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Quit"
+
+[connection signal="pressed" from="Control/simple_menu/restart" to="." method="_on_restart_pressed"]
+[connection signal="pressed" from="Control/simple_menu/quit" to="." method="_on_quit_pressed"]

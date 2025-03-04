@@ -1,14 +1,12 @@
 [gd_scene load_steps=4 format=3 uid="uid://hu5yrkqxq6au"]
 
-[ext_resource type="PackedScene" uid="uid://bqfbk13igergs" path="res://scenes/level.tscn" id="1_1qf0w"]
-[ext_resource type="Script" path="res://scripts/game.gd" id="1_gd55p"]
-[ext_resource type="PackedScene" uid="uid://cmkgy7eycrdsw" path="res://scenes/player.tscn" id="2_jca2b"]
+[ext_resource type="Script" uid="uid://bu7e2kwg3tqg4" path="res://scripts/game.gd" id="1_gd55p"]
+[ext_resource type="PackedScene" uid="uid://c6thgcr06l35p" path="res://scenes/audio_management.tscn" id="4_lbhrr"]
+[ext_resource type="PackedScene" uid="uid://c07ubfg6oras7" path="res://scenes/ui.tscn" id="5_iywne"]
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_gd55p")
 
-[node name="Level" parent="." instance=ExtResource("1_1qf0w")]
-unique_name_in_owner = true
+[node name="AudioManagement" parent="." instance=ExtResource("4_lbhrr")]
 
-[node name="Player" parent="." instance=ExtResource("2_jca2b")]
-position = Vector2(230, 250)
+[node name="UI" parent="." instance=ExtResource("5_iywne")]

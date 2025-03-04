@@ -1,7 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://88fobtjt2npd"]
+[gd_scene load_steps=10 format=3 uid="uid://88fobtjt2npd"]
 
-[ext_resource type="Script" path="res://scripts/enemy.gd" id="1_kuujd"]
+[ext_resource type="Script" uid="uid://hnp84kn7ww42" path="res://scripts/enemy.gd" id="1_kuujd"]
 [ext_resource type="Texture2D" uid="uid://bfrhsvty040x6" path="res://assets/images/enemy.png" id="2_6esc4"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_a8tum"]
+size = Vector2(8, 24)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_d5s33"]
 atlas = ExtResource("2_6esc4")
@@ -33,15 +36,21 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_uv7os"]
-size = Vector2(16, 8)
+size = Vector2(18, 8)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0topi"]
-size = Vector2(20, 24)
+size = Vector2(18, 24)
 
-[node name="Enemy" type="Node2D"]
+[node name="Enemy" type="CharacterBody2D"]
 script = ExtResource("1_kuujd")
 
+[node name="enemy_collision" type="CollisionShape2D" parent="."]
+position = Vector2(0, 4)
+shape = SubResource("RectangleShape2D_a8tum")
+debug_color = Color(0.933264, 2.23327e-05, 0.645378, 0.42)
+
 [node name="animation" type="AnimatedSprite2D" parent="."]
+unique_name_in_owner = true
 sprite_frames = SubResource("SpriteFrames_gmogp")
 
 [node name="head_area" type="Area2D" parent="."]

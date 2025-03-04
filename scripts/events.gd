@@ -1,11 +1,21 @@
 extends Node;
 
-signal update_camera_limits;
+signal update_camera_limits();
 
-signal kill_player;
-signal player_fell;
-signal player_died;
+signal play_sound(sound_name: StringName);
 
-signal add_point;
+signal show_message();
+signal hide_message();
+signal show_menu();
+signal hide_menu();
 
-signal win;
+signal kill_player();
+signal player_fell();
+signal player_died();
+
+signal add_point();
+signal update_score();
+
+signal win();
+
+signal restart_game();

@@ -14,7 +14,12 @@ var actual_level_size: Vector2i = Vector2i.ZERO:
 		actual_level_size = size;
 		Events.update_camera_limits.emit();
 
-var player_points: int = 0;
+var player_score: int = 0:
+	get:
+		return player_score;
+	set(score):
+		player_score = score;
+		Events.update_score.emit();
 
 var is_game_finished: bool = false;
 

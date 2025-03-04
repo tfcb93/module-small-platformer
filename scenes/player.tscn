@@ -1,11 +1,11 @@
 [gd_scene load_steps=20 format=3 uid="uid://cmkgy7eycrdsw"]
 
 [ext_resource type="Texture2D" uid="uid://b0y45md76cwsl" path="res://assets/images/player.png" id="1_ft07a"]
-[ext_resource type="Script" path="res://scripts/player.gd" id="1_wf4mo"]
-[ext_resource type="Script" path="res://scripts/camera.gd" id="3_uxvar"]
+[ext_resource type="Script" uid="uid://dygn04uxng6ug" path="res://scripts/player.gd" id="1_wf4mo"]
+[ext_resource type="Script" uid="uid://dhnvd2dcbrtbx" path="res://scripts/camera.gd" id="3_uxvar"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_v62bb"]
-radius = 8.0
+radius = 9.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_n8fv6"]
 atlas = ExtResource("1_ft07a")
