@@ -21,7 +21,7 @@ func _physics_process(delta: float) -> void:
 			velocity += get_gravity() * delta;
 
 			if (position.y > get_viewport_rect().size.y):
-				kill_enemy();
+				delete_enemy();
 
 		if (position.x < 0): position.x = 0;
 		if (position.x > Globals.actual_level_size.x): position.x = Globals.actual_level_size.x;
@@ -50,16 +50,14 @@ func hit_another_enemy() -> void:
 	direction *= -1.0;
 	change_direction();
 
-func kill_enemy() -> void:
-		Events.add_point.emit(5); # I think this should be in the game scene, since it is responsible for more global events.
-		# It's like, the enemy shouldn't know that when it dies it gives points to some entity.
-		get_parent().call_deferred("remove_child", self);
-		queue_free();
-
+func delete_enemy() -> void:
+	get_parent().call_deferred("remove_child", self);
+	queue_free();
 
 func _on_head_area_body_entered(body: Node2D) -> void:
-	if (body.name == "Player" and not Globals.is_game_over):
-		kill_enemy();
+	if (body is Player and not Globals.is_game_over):
+		Events.add_point.emit(5);
+		delete_enemy();
 
 func _on_bottom_area_body_entered(body: Node2D) -> void:
 	if (body is Player):
