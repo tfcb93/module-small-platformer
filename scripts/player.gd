@@ -21,6 +21,7 @@ func _physics_process(delta: float) -> void:
 
 		if (Input.is_action_just_pressed("jump") and is_on_floor()):
 			velocity.y = JUMP_VELOCITY;
+			Events.play_sound.emit("jump");
 			%animations.play("jump");
 
 		var direction: float = Input.get_axis("left", "right");

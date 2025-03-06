@@ -57,11 +57,13 @@ func delete_enemy() -> void:
 func _on_head_area_body_entered(body: Node2D) -> void:
 	if (body is Player and not Globals.is_game_over):
 		Events.add_point.emit(5);
+		Events.play_sound.emit("kill");
 		delete_enemy();
 
 func _on_bottom_area_body_entered(body: Node2D) -> void:
 	if (body is Player):
 		Events.kill_player.emit();
+		Events.play_sound.emit("hit");
 	if (body is Enemy):
 		hit_another_enemy();
 
