@@ -1,5 +1,7 @@
 extends CharacterBody2D;
 
+class_name Enemy;
+
 const SPEED: float = 100.0;
 
 var direction: float = 0.0;
@@ -59,14 +61,10 @@ func _on_head_area_body_entered(body: Node2D) -> void:
 	if (body.name == "Player" and not Globals.is_game_over):
 		kill_enemy();
 
-# I want to change the use of .name, since it's not good for more generic code.
-# I'm having problems using class_names and the UID references on Godot 4.4
-# or is something else I'm missing
 func _on_bottom_area_body_entered(body: Node2D) -> void:
-	if (body.name == "Player"):
+	if (body is Player):
 		Events.kill_player.emit();
-	if (body.name == "Enemy"):
-		body.hit_another_enemy();
+	if (body is Enemy):
 		hit_another_enemy();
 
 func _on_stop_enemies() -> void:
