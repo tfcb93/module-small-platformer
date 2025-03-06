@@ -1,7 +1,10 @@
-[gd_scene load_steps=3 format=3 uid="uid://cv36qe2hnc12b"]
+[gd_scene load_steps=4 format=3 uid="uid://cv36qe2hnc12b"]
 
 [ext_resource type="Script" uid="uid://btedjcmobtt8y" path="res://scripts/start_screen.gd" id="1_o7i0r"]
 [ext_resource type="Texture2D" uid="uid://c5l82vmrv78j1" path="res://assets/images/title_screen.png" id="1_tx5wa"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_o7i0r"]
+font_size = 10
 
 [node name="Start Screen" type="Node2D"]
 script = ExtResource("1_o7i0r")
@@ -40,9 +43,24 @@ unique_name_in_owner = true
 layout_mode = 2
 text = "Quit"
 
+[node name="Label" type="Label" parent="interface/Control"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -173.0
+offset_top = 5.0
+offset_right = -5.0
+offset_bottom = 28.0
+grow_horizontal = 0
+text = "made by tfcb93
+sounds from jsfxr"
+label_settings = SubResource("LabelSettings_o7i0r")
+
 [node name="background" type="Sprite2D" parent="."]
 texture = ExtResource("1_tx5wa")
 offset = Vector2(320, 180)
+metadata/_edit_lock_ = true
 
 [connection signal="pressed" from="interface/Control/VBoxContainer/start game" to="." method="_on_start_game_pressed"]
 [connection signal="pressed" from="interface/Control/VBoxContainer/quit" to="." method="_on_quit_pressed"]
