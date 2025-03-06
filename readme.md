@@ -5,4 +5,4 @@ You can run it on Godot 4.4.
 
 Check the posts on itch.io for more information o/
 
-[Small Platformet Game on itch.io](https://tfcb93.itch.io/small-platformer-game)
+[Small Platformer Game on itch.io](https://tfcb93.itch.io/small-platformer-game)
