@@ -4,3 +4,5 @@ I call it a module, but it's actually an very very simple and small game I made 
 You can run it on Godot 4.4.  
 
 Check the posts on itch.io for more information o/
+
+[Small Platformet Game on itch.io](https://tfcb93.itch.io/small-platformer-game)
