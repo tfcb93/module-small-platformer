@@ -1,0 +1,48 @@
+[gd_scene load_steps=3 format=3 uid="uid://cv36qe2hnc12b"]
+
+[ext_resource type="Script" uid="uid://btedjcmobtt8y" path="res://scripts/start_screen.gd" id="1_o7i0r"]
+[ext_resource type="Texture2D" uid="uid://c5l82vmrv78j1" path="res://assets/images/title_screen.png" id="1_tx5wa"]
+
+[node name="Start Screen" type="Node2D"]
+script = ExtResource("1_o7i0r")
+
+[node name="interface" type="CanvasLayer" parent="."]
+
+[node name="Control" type="Control" parent="interface"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="interface/Control"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -50.0
+offset_top = -50.0
+offset_right = -10.0
+offset_bottom = -10.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="start game" type="Button" parent="interface/Control/VBoxContainer"]
+layout_mode = 2
+text = "Start"
+
+[node name="quit" type="Button" parent="interface/Control/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Quit"
+
+[node name="background" type="Sprite2D" parent="."]
+texture = ExtResource("1_tx5wa")
+offset = Vector2(320, 180)
+
+[connection signal="pressed" from="interface/Control/VBoxContainer/start game" to="." method="_on_start_game_pressed"]
+[connection signal="pressed" from="interface/Control/VBoxContainer/quit" to="." method="_on_quit_pressed"]

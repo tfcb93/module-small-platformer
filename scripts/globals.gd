@@ -24,5 +24,3 @@ var player_score: int = 0:
 var is_game_finished: bool = false;
 
 var is_game_over: bool = false;
-
-var is_game_started: bool = true;

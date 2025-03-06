@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://hu5yrkqxq6au"]
+[gd_scene load_steps=6 format=3 uid="uid://hu5yrkqxq6au"]
 
 [ext_resource type="Script" uid="uid://bu7e2kwg3tqg4" path="res://scripts/game.gd" id="1_gd55p"]
 [ext_resource type="PackedScene" uid="uid://d711eis0raum" path="res://scenes/background.tscn" id="2_lbhrr"]
 [ext_resource type="PackedScene" uid="uid://c6thgcr06l35p" path="res://scenes/audio_management.tscn" id="4_lbhrr"]
 [ext_resource type="PackedScene" uid="uid://c07ubfg6oras7" path="res://scenes/ui.tscn" id="5_iywne"]
+[ext_resource type="PackedScene" uid="uid://cv36qe2hnc12b" path="res://scenes/start_screen.tscn" id="5_p57ef"]
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_gd55p")
@@ -13,3 +14,6 @@ script = ExtResource("1_gd55p")
 [node name="AudioManagement" parent="." instance=ExtResource("4_lbhrr")]
 
 [node name="UI" parent="." instance=ExtResource("5_iywne")]
+
+[node name="Start Screen" parent="." instance=ExtResource("5_p57ef")]
+unique_name_in_owner = true

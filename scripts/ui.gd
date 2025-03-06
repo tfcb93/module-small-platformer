@@ -6,7 +6,9 @@ func _ready() -> void:
     
     %big_message.visible = false;
     %simple_menu.visible = false;
+    %player_score.visible = false;
 
+    Events.start_game.connect(_on_start_game);
     Events.show_message.connect(_on_show_message);
     Events.hide_message.connect(_on_hide_message);
     Events.show_menu.connect(_on_show_menu);
@@ -34,3 +36,6 @@ func _on_show_menu() -> void:
 
 func _on_hide_menu() -> void:
     %simple_menu.visible = false;
+
+func _on_start_game() -> void:
+    %player_score.visible = true;

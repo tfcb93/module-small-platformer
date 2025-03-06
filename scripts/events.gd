@@ -1,5 +1,7 @@
 extends Node;
 
+signal start_game();
+
 signal update_camera_limits();
 
 signal play_sound(sound_name: StringName);

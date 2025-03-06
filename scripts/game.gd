@@ -6,8 +6,7 @@ var actual_level: Node;
 
 func _ready() -> void:
 
-	create_level();
-
+	Events.start_game.connect(_on_start_game);
 	Events.win.connect(_on_win);
 	Events.add_point.connect(_on_add_point);
 	Events.kill_player.connect(_on_kill_player);
@@ -19,6 +18,12 @@ func create_level() -> void:
 	Globals.actual_level_tilemap = actual_level;
 	add_child(actual_level);
 	move_child(actual_level, 1);
+
+func _on_start_game() -> void:
+	var start_screen: Node = %"Start Screen";
+	remove_child(start_screen);
+	start_screen.call_deferred("queue_free");
+	create_level();
 
 func _on_win() -> void:
 	Globals.is_game_finished = true;
